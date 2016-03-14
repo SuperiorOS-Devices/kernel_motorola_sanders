@@ -27,7 +27,7 @@
 #include <soc/qcom/watchdog.h>
 
 int watchdog_user_enabled = 1;
-int __read_mostly watchdog_thresh = 5;
+int __read_mostly watchdog_thresh = 40;
 #ifdef CONFIG_SMP
 int __read_mostly sysctl_softlockup_all_cpu_backtrace;
 #else
