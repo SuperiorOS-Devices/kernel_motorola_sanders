@@ -44,19 +44,12 @@ msm-y := \
 	sde/sde_kms.o \
 	sde/sde_plane.o \
 	sde/sde_connector.o \
-	msm_atomic.o \
-	msm_drv.o \
-	msm_fb.o \
-	msm_gem.o \
-	msm_gem_prime.o \
-	msm_gem_submit.o \
-	msm_gpu.o \
-	msm_smmu.o \
-	msm_perf.o \
-	msm_rd.o \
-	msm_ringbuffer.o \
-	msm_evtlog.o \
-	msm_prop.o \
+	sde/sde_backlight.o \
+	sde/sde_color_processing.o \
+	sde/sde_vbif.o \
+	sde/sde_splash.o \
+	sde/sde_recovery_manager.o \
+	sde_io_util.o \
 	dba_bridge.o \
 
 # use drm gpu driver only if qcom_kgsl driver not available
@@ -67,9 +60,10 @@ msm-y += adreno/adreno_device.o \
 	adreno/adreno_perfcounter.o
 endif
 
-msm-$(CONFIG_DRM_MSM_HDCP) += hdmi/hdmi_hdcp.o
+msm_drm-$(CONFIG_DEBUG_FS) += sde_dbg.o \
+        sde_dbg_evtlog.o
 
-msm-$(CONFIG_DRM_MSM_MDP4) += mdp/mdp4/mdp4_crtc.o \
+msm_drm-$(CONFIG_DRM_MSM_MDP4) += mdp/mdp4/mdp4_crtc.o \
 	mdp/mdp4/mdp4_dtv_encoder.o \
 	mdp/mdp4/mdp4_lcdc_encoder.o \
 	mdp/mdp4/mdp4_lvds_connector.o \
