@@ -2066,13 +2066,6 @@ int clk_get_phase(struct clk *clk)
 out:
 	return ret;
 }
-void clk_debug_print_hw(struct clk_core *clk, struct seq_file *f)
-{
-}
-void clock_debug_print_enabled(bool print_parent)
-{
-}
-#endif
 
 /**
  * __clk_init - initialize the data structures in a struct clk
